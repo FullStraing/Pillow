@@ -463,7 +463,7 @@ Methods
 
     :param features: A list of OpenType font features to be used during text
                      layout. This is usually used to turn on optional
-                
+             
     font features that are not enabled by default,
                      for example ``"dlig"`` or ``"ss01"``, but can be also
                      used to turn off default font features, for
@@ -482,8 +482,8 @@ Methods
                      Requires libraqm.
 
                      .. versionadded:: 6.0.0
-    
-.. note:: **Complex scripts.** When libraqm is available, Pillow
+
+    .. note:: **Complex scripts.** When libraqm is available, Pillow
        performs shaping and applies the bidirectional algorithm itself, so
        do not pre-process text with ``arabic_reshaper`` and ``python-bidi``
        first: the text would be shaped and reordered twice, and the result
