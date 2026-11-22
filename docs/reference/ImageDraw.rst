@@ -463,7 +463,8 @@ Methods
 
     :param features: A list of OpenType font features to be used during text
                      layout. This is usually used to turn on optional
-                     font features that are not enabled by default,
+                
+    font features that are not enabled by default,
                      for example ``"dlig"`` or ``"ss01"``, but can be also
                      used to turn off default font features, for
                      example ``"-liga"`` to disable ligatures or ``"-kern"``
