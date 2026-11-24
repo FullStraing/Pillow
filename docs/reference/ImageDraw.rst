@@ -403,6 +403,11 @@ Methods
 
     Draws the string at the given position.
 
+    .. note:: When Raqm layout is used, Pillow shapes and reorders text itself.
+              Do not first pass text through :pypi:`arabic-reshaper` and
+              :pypi:`python-bidi`. By default, :pypi:`arabic-reshaper` also
+              removes diacritics. See :py:attr:`PIL.ImageFont.Layout.RAQM`.
+
     :param xy: The anchor coordinates of the text.
     :param text: String to be drawn. If it contains any newline characters,
                  the text is passed on to
@@ -454,20 +459,6 @@ Methods
                      Requires libraqm.
 
                      .. versionadded:: 6.0.0
-
-    .. note:: **Complex scripts.** When libraqm is available, Pillow
-       performs shaping and applies the bidirectional algorithm itself, so
-       do not pre-process text with ``arabic_reshaper`` and ``python-bidi``
-       first: the text would be shaped and reordered twice, and the result
-       is incorrect. ``arabic_reshaper`` also drops diacritics. This
-       pre-processing is only needed on builds without libraqm, so check
-       ``PIL.features.check("raqm")`` at runtime, in the environment doing
-       the rendering, to decide whether it is needed::
-
-           from PIL import features
-
-           if not features.check("raqm"):
-               text = get_display(arabic_reshaper.reshape(text))
 
     :param stroke_width: The width of the text stroke.
 
